@@ -1,0 +1,32 @@
+{% extends 'flatpages/default.html' %}
+
+{% load custom_filters %}
+
+{% block title %}
+    Информация о посте
+{% endblock title %}
+
+
+{% block content %}
+<br>
+    <h2>Информация о посте № {{ post.pk }} - "{{post.title_post}}" </h2>
+        <br>
+        <table style="border: 2px solid; border-collapse: collapse">
+            <thead>
+             <tr>
+               <th style="border: 1px solid; padding: 10px;"> Заголовок поста </th>
+               <th style="border: 1px solid; padding: 10px;"> Дата публикации </th>
+               <th style="border: 1px solid; padding: 10px;"> Краткое описание поста </th>
+               <th style="border: 1px solid; padding: 10px;"> Рейтинг поста </th>
+                 <th style="border: 1px solid; padding: 10px;"> Автор </th>
+             </tr>
+            </thead>
+            <tr>
+                <td style="border: 1px solid; padding: 10px;">{{ post.title_post|censor:"теплового" }}</td>
+               <td style="border: 1px solid; padding: 10px;">{{ post.date_of_creation_post| date:"d F Y f A" }}</td>
+               <td style="border: 1px solid; padding: 10px;text-align:left">{{ post.text_post|censor:"витамина" }}</td>
+               <td style="border: 1px solid; padding: 10px;">{{ post.rating_post }}</td>
+                <td style="border: 1px solid; padding: 10px;">{{ post.author_id }}</td>
+            </tr>
+        </table>
+{% endblock content %}

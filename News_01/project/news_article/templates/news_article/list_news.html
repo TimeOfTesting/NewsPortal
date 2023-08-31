@@ -1,0 +1,40 @@
+{% extends 'flatpages/default.html' %}
+
+{% load custom_filters %}
+
+{% block title %}
+    Все новости/статьи
+{% endblock title %}
+
+
+{% block content %}
+<br>
+    <h2>Список всех постов</h2>
+    <br>
+        <ol style="font-weight:500">
+            {% for name in post %}
+            <li style="text-align:left"> Заголовок поста - "{{name.title_post|censor:"детей"}}" <br> Дата публикации - {{ name.date_of_creation_post| date:"d F Y f A"}} <br> Краткое содержание поста - {{ name.text_post|censor:"детей"|slice:":20"}} <br> Рейтинг - {{ name.rating_post}} </li>
+            {% endfor %}
+        </ol>
+
+{% if page_obj.has_previous %}
+       <a href="?page=1">1</a>
+       {% if page_obj.previous_page_number != 1 %}
+           ...
+           <a href="?page={{ page_obj.previous_page_number }}">{{ page_obj.previous_page_number }}</a>
+       {% endif %}
+   {% endif %}
+
+   {# Информация о текущей странице #}
+   {{ page_obj.number }}
+
+   {# Информация о следующих страницах #}
+   {% if page_obj.has_next %}
+       <a href="?page={{ page_obj.next_page_number }}">{{ page_obj.next_page_number }}</a>
+       {% if paginator.num_pages != page_obj.next_page_number %}
+           ...
+           <a href="?page={{ page_obj.paginator.num_pages }}">{{ page_obj.paginator.num_pages }}</a>
+       {% endif %}
+   {% endif %}
+
+{% endblock content %}
