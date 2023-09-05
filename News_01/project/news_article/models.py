@@ -24,6 +24,7 @@ class Author(models.Model):
         self.rating_author = rating_author * 3 + rating_comment_author + rating_comment_author_post
         self.save()
 
+
 class Post(models.Model):
     news = 'Новость'
     newspaper_article = 'Статья'

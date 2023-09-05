@@ -1,8 +1,12 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Post
 from django.views.generic import ListView, DetailView, CreateView, TemplateView, UpdateView, DeleteView
 from .filters import PostFilter
 from .forms import PostFormNews
+from django.contrib.auth.mixins import PermissionRequiredMixin, LoginRequiredMixin
+from django.contrib.auth.models import Group
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth import logout
 
 
 class ListPost (ListView):
@@ -35,7 +39,8 @@ class DetailPost (DetailView):
     model = Post
     context_object_name = 'post'
 
-class CreatePostNews (CreateView):
+class CreatePostNews (PermissionRequiredMixin, CreateView):
+    permission_required = ('news_article.add_post',)
     model = Post
     form_class = PostFormNews
     template_name = 'news_article/create_news.html'
@@ -46,13 +51,15 @@ class CreatePostNews (CreateView):
         post.post_type = 'Новость'
         return super().form_valid(form)
 
-class UpdatePostNews (UpdateView):
+class UpdatePostNews (PermissionRequiredMixin, UpdateView):
+    permission_required = ('news_article.change_post',)
     model = Post
     form_class = PostFormNews
     template_name = 'news_article/create_news.html'
     success_url = '/news/done'
 
-class DeletePostNews (DeleteView):
+class DeletePostNews (PermissionRequiredMixin, DeleteView):
+    permission_required = ('news_article.delete_post',)
     model = Post
     template_name = 'news_article/delete_news.html'
     success_url = '/news/'
@@ -60,7 +67,8 @@ class DeletePostNews (DeleteView):
 class DoneView(TemplateView):
     template_name = 'news_article/done.html'
 
-class CreatePostArticle (CreateView):
+class CreatePostArticle (PermissionRequiredMixin, CreateView):
+    permission_required = ('news_article.add_post',)
     model = Post
     form_class = PostFormNews
     template_name = 'news_article/create_article.html'
@@ -71,13 +79,36 @@ class CreatePostArticle (CreateView):
         post.post_type = 'Статья'
         return super().form_valid(form)
 
-class UpdatePostArticle (UpdateView):
+class UpdatePostArticle (PermissionRequiredMixin, UpdateView):
+    permission_required = ('news_article.change_post',)
     model = Post
     form_class = PostFormNews
     template_name = 'news_article/create_article.html'
     success_url = '/news/done'
 
-class DeletePostArticle (DeleteView):
+class DeletePostArticle (PermissionRequiredMixin, DeleteView):
+    permission_required = ('news_article.delete_post',)
     model = Post
     template_name = 'news_article/delete_news.html'
     success_url = '/news/'
+
+
+class IndexView(LoginRequiredMixin, TemplateView):
+    template_name = 'news_article/index.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['is_not_authors'] = not self.request.user.groups.filter(name='authors').exists()
+        return context
+
+@login_required
+def upgrade_me(request):
+    user = request.user
+    authors_group = Group.objects.get(name='authors')
+    if not request.user.groups.filter(name='authors').exists():
+        authors_group.user_set.add(user)
+    return render(request, 'news_article/update.html')
+
+def logout_view(request):
+    logout(request)
+    return render(request, 'news_article/logout.html')

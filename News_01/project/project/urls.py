@@ -30,4 +30,8 @@ urlpatterns = [
     path('news/articles/create', include('news_article.urls')),
     path('news/articles/int:pk>/edit', include('news_article.urls')),
     path('news/articles/<int:pk>/delete', include('news_article.urls')),
+    path('accounts/', include('allauth.urls')),
+    path('news/user', include('news_article.urls')),
+    path('news/update', include('news_article.urls')),
+    path('news/logout', include('news_article.urls')),
 ]
