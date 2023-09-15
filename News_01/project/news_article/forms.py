@@ -1,5 +1,5 @@
 from django import forms
-from .models import Post
+from .models import Post, Subscription
 from allauth.account.forms import SignupForm
 from django.contrib.auth.models import Group
 
@@ -7,6 +7,7 @@ class SingleDateWidget(forms.DateInput):
     input_type = 'date'
 
 class PostFormNews(forms.ModelForm):
+
     class Meta:
         model = Post
 
@@ -19,7 +20,6 @@ class PostFormNews(forms.ModelForm):
             'author': "Автор"
         }
 
-
 class BasicSignupForm(SignupForm):
 
     def save(self, request):
@@ -27,3 +27,9 @@ class BasicSignupForm(SignupForm):
         basic_group = Group.objects.get(name='common')
         basic_group.user_set.add(user)
         return user
+
+class SubscriptionForm(forms.ModelForm):
+
+    class Meta:
+        model = Subscription
+        fields = '__all__'

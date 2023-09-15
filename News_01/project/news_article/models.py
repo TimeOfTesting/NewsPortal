@@ -2,12 +2,23 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.db.models import Sum
 from django.core.validators import MinLengthValidator, MinValueValidator
+from django.core.exceptions import ValidationError
+from datetime import datetime, timedelta
 
 class Category(models.Model):
     name_category = models.CharField(max_length=25, unique=True, null=False)
 
     def __str__(self):
         return f'{self.name_category}'
+
+class Subscription(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    email = models.EmailField(max_length=50, blank=True)
+
+    def __str__(self):
+        return f'{self.user} {self.category} {self.email}'
+
 
 class Author(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
@@ -52,6 +63,21 @@ class Post(models.Model):
 
     def preview(self):
         return f'{self.text_post[:124]}...'
+
+    def save(self, *args, **kwargs):
+        user = self.author
+        current_date = datetime.now()
+        posts_by_user_today = Post.objects.filter(author=user,
+                                                  date_of_creation_post__gte=current_date - timedelta(days=1)).count()
+
+        if posts_by_user_today >= 3:
+            raise ValidationError("Пользователь уже опубликовал максимальное количество записей за сутки.")
+
+        super(Post, self).save(*args, **kwargs)
+
+
+    def get_absolute_url(self):
+        return f'/news/{self.pk}'
 
 
 class PostCategory(models.Model):

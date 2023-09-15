@@ -7,5 +7,6 @@
     {% csrf_token %}
     <p>Вы уверены, что хотите удалить "{{ object.title_post }}"?</p>
     <input type="submit" value="Удалить" />
+    <input type="submit" value="Отмена" />
 </form>
 {% endblock content %}

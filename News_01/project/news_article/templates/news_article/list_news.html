@@ -6,6 +6,8 @@
     Все новости/статьи
 {% endblock title %}
 
+{% load custom_filters %}
+{% load custom_tags %}
 
 {% block content %}
 <br>
@@ -13,7 +15,7 @@
     <br>
         <ol style="font-weight:500">
             {% for name in post %}
-            <li style="text-align:left"> Заголовок поста - "{{name.title_post|censor:"детей"}}" <br> Дата публикации - {{ name.date_of_creation_post| date:"d F Y f A"}} <br> Краткое содержание поста - {{ name.text_post|censor:"детей"|slice:":20"}} <br> Рейтинг - {{ name.rating_post}} </li>
+            <li style="text-align:left"><a href="/news/{{name.id}}">  Заголовок поста - "{{name.title_post|censor:"детей"}}" <br> Дата публикации - {{ name.date_of_creation_post| date:"d F Y f A"}} <br> Краткое содержание поста - {{ name.text_post|censor:"детей"|slice:":20"}} <br> Рейтинг - {{ name.rating_post}}</a></li>
             {% endfor %}
         </ol>
 

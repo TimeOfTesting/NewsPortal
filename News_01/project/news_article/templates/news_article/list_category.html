@@ -1,0 +1,20 @@
+{% extends 'flatpages/default.html' %}
+
+{% load custom_filters %}
+
+{% block title %}
+    Все новости/статьи
+{% endblock title %}
+
+
+{% block content %}
+<br>
+    <h2>Категории всех постов</h2>
+    <br>
+        <ol style="font-weight:500">
+            {% for i in category %}
+            <li style="text-align:left"><a href="/news/categories/{{i.id}}"> {{i.name_category}} </a> </li>
+            {% endfor %}
+        </ol>
+
+{% endblock content %}

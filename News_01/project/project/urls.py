@@ -34,4 +34,11 @@ urlpatterns = [
     path('news/user', include('news_article.urls')),
     path('news/update', include('news_article.urls')),
     path('news/logout', include('news_article.urls')),
+    path('news/categories', include('news_article.urls')),
+    path('news/categories/<int:pk>', include('news_article.urls')),
+    path('news/categories/<int:pk>/subscribe', include('news_article.urls')),
+    path('news/categories/<int:pk>/unsubscribe', include('news_article.urls')),
+    path('news/categories/subscribe_done', include('news_article.urls')),
+    path('news/categories/unsubscribe_done', include('news_article.urls')),
+
 ]

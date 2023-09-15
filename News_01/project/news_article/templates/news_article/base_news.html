@@ -8,25 +8,39 @@
 
 
 {% block content %}
+
 <br>
     <h2>Информация о посте № {{ post.pk }} - "{{post.title_post}}" </h2>
         <br>
         <table style="border: 2px solid; border-collapse: collapse">
             <thead>
              <tr>
+                 <th style="border: 1px solid; padding: 10px;"> Номер поста </th>
                <th style="border: 1px solid; padding: 10px;"> Заголовок поста </th>
                <th style="border: 1px solid; padding: 10px;"> Дата публикации </th>
                <th style="border: 1px solid; padding: 10px;"> Краткое описание поста </th>
                <th style="border: 1px solid; padding: 10px;"> Рейтинг поста </th>
                  <th style="border: 1px solid; padding: 10px;"> Автор </th>
+                 <th style="border: 1px solid; padding: 10px;"> Тип поста </th>
              </tr>
             </thead>
             <tr>
+                <td style="border: 1px solid; padding: 10px;">{{ post.pk }}</td>
                 <td style="border: 1px solid; padding: 10px;">{{ post.title_post|censor:"теплового" }}</td>
                <td style="border: 1px solid; padding: 10px;">{{ post.date_of_creation_post| date:"d F Y f A" }}</td>
                <td style="border: 1px solid; padding: 10px;text-align:left">{{ post.text_post|censor:"витамина" }}</td>
                <td style="border: 1px solid; padding: 10px;">{{ post.rating_post }}</td>
                 <td style="border: 1px solid; padding: 10px;">{{ post.author_id }}</td>
+                <td style="border: 1px solid; padding: 10px;">{{ post.post_type }}</td>
             </tr>
         </table>
+<br>
+<br>
+{% if post.post_type == 'Новость' %}
+<button> <a href="/news/{{post.pk}}/edit"> Редактировать </a> </button>
+<button> <a href="/news/{{post.pk}}/delete"> Удалить </a> </button>
+{% elif post.post_type == 'Статья' %}
+<button> <a href="/news/articles/{{post.pk}}/edit"> Редактировать </a> </button>
+<button> <a href="/news/articles/{{post.pk}}/delete"> Удалить </a> </button>
+{% endif %}
 {% endblock content %}

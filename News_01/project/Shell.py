@@ -110,3 +110,4 @@ for comment_best_post in newspaper_article_news:
     if comment_best_post['post_id'] == best_post_id:
         print(comment_best_post)
 
+category = Post.objects.select_related('postcategory').values('postcategory__categories_id','title_post', 'postcategory__posts_id')
