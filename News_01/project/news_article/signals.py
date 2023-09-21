@@ -1,11 +1,12 @@
-from django.dispatch import receiver
-from .models import Subscription, Post, PostCategory
-from django.template.loader import render_to_string
+from celery import shared_task
 from django.core.mail import EmailMultiAlternatives
+from django.template.loader import render_to_string
 from django.conf import settings
 from django.db.models.signals import post_save
+from django.dispatch import receiver
+from .models import Post, PostCategory, Subscription
 
-
+@shared_task
 def send_notifications(text_post, pk, title, subscribers_email):
     html_content = render_to_string(
         'post_created_email.html',
@@ -28,4 +29,4 @@ def notify_about_new_post(sender, instance, **kwargs):
     subscribers_email = [i['email'] for i in email]
     print(subscribers_email)
 
-    send_notifications(instance.text_post, instance.pk, instance.title_post, subscribers_email)
+    send_notifications.delay(instance.text_post, instance.pk, instance.title_post, subscribers_email)
