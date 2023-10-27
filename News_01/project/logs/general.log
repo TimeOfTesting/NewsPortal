@@ -1,0 +1,586 @@
+2023-10-27 15:30:52,956 [INFO] [autoreload] - Watching for file changes with StatReloader
+2023-10-27 15:30:54,637 [WARNING] [log] - Not Found: /
+2023-10-27 15:30:54,638 [WARNING] [basehttp] - "GET / HTTP/1.1" 404 179
+2023-10-27 15:30:58,165 [WARNING] [log] - Not Found: /туц
+2023-10-27 15:30:58,166 [WARNING] [basehttp] - "GET /%D1%82%D1%83%D1%86 HTTP/1.1" 404 179
+2023-10-27 15:31:06,318 [WARNING] [log] - Not Found: /
+2023-10-27 15:31:06,320 [WARNING] [basehttp] - "GET / HTTP/1.1" 404 179
+2023-10-27 15:31:09,403 [WARNING] [log] - Not Found: /туцы
+2023-10-27 15:31:09,404 [WARNING] [basehttp] - "GET /%D1%82%D1%83%D1%86%D1%8B HTTP/1.1" 404 179
+2023-10-27 15:31:12,693 [INFO] [basehttp] - "GET /news/ HTTP/1.1" 200 4239
+2023-10-27 15:31:15,427 [INFO] [basehttp] - "GET /news/categories HTTP/1.1" 200 3381
+2023-10-27 15:31:16,786 [INFO] [basehttp] - "GET /news/user HTTP/1.1" 200 3319
+2023-10-27 15:31:20,196 [INFO] [basehttp] - "GET /news/ HTTP/1.1" 200 4239
+2023-10-27 15:31:20,693 [INFO] [basehttp] - "GET /news/categories HTTP/1.1" 200 3381
+2023-10-27 15:31:21,877 [INFO] [basehttp] - "GET /news/categories/1 HTTP/1.1" 200 11129
+2023-10-27 15:31:26,002 [INFO] [basehttp] - "POST /news/categories/1/subscribe HTTP/1.1" 302 0
+2023-10-27 15:31:26,007 [INFO] [basehttp] - "GET /news/categories/unsubscribe_donecategories/subscribe_done HTTP/1.1" 200 2872
+2023-10-27 15:31:28,215 [INFO] [basehttp] - "GET /news/ HTTP/1.1" 200 4239
+2023-10-27 15:31:29,637 [INFO] [basehttp] - "GET /news/user HTTP/1.1" 200 3378
+2023-10-27 15:31:30,707 [INFO] [basehttp] - "GET /news/categories HTTP/1.1" 200 3381
+2023-10-27 15:31:31,886 [INFO] [basehttp] - "GET /news/categories/4 HTTP/1.1" 200 6979
+2023-10-27 15:31:34,676 [INFO] [basehttp] - "POST /news/categories/4/unsubscribe HTTP/1.1" 302 0
+2023-10-27 15:31:34,679 [INFO] [basehttp] - "GET /news/categories/unsubscribe_donecategories/unsubscribe_done HTTP/1.1" 200 2870
+2023-10-27 15:32:29,170 [INFO] [basehttp] - "GET /news/create HTTP/1.1" 200 4378
+2023-10-27 15:32:34,910 [ERROR] [log] - Internal Server Error: /news/create
+Traceback (most recent call last):
+  File "C:\Users\Max\PycharmProjects\News_01\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Max\PycharmProjects\News_01\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Max\PycharmProjects\News_01\venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Max\PycharmProjects\News_01\venv\Lib\site-packages\django\contrib\auth\mixins.py", line 109, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Max\PycharmProjects\News_01\venv\Lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Max\PycharmProjects\News_01\venv\Lib\site-packages\django\views\generic\edit.py", line 184, in post
+    return super().post(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Max\PycharmProjects\News_01\venv\Lib\site-packages\django\views\generic\edit.py", line 153, in post
+    return self.form_valid(form)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Max\PycharmProjects\News_01\project\news_article\views.py", line 156, in form_valid
+    return super().form_valid(form)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Max\PycharmProjects\News_01\venv\Lib\site-packages\django\views\generic\edit.py", line 135, in form_valid
+    self.object = form.save()
+                  ^^^^^^^^^^^
+  File "C:\Users\Max\PycharmProjects\News_01\venv\Lib\site-packages\django\forms\models.py", line 542, in save
+    self.instance.save()
+  File "C:\Users\Max\PycharmProjects\News_01\project\news_article\models.py", line 74, in save
+    raise ValidationError("Пользователь уже опубликовал максимальное количество записей за сутки.")
+django.core.exceptions.ValidationError: ['Пользователь уже опубликовал максимальное количество записей за сутки.']
+2023-10-27 15:32:34,920 [ERROR] [basehttp] - "POST /news/create HTTP/1.1" 500 145
+2023-10-27 15:32:55,949 [ERROR] [log] - Internal Server Error: /news/create
+Traceback (most recent call last):
+  File "C:\Users\Max\PycharmProjects\News_01\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Max\PycharmProjects\News_01\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Max\PycharmProjects\News_01\venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Max\PycharmProjects\News_01\venv\Lib\site-packages\django\contrib\auth\mixins.py", line 109, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Max\PycharmProjects\News_01\venv\Lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Max\PycharmProjects\News_01\venv\Lib\site-packages\django\views\generic\edit.py", line 184, in post
+    return super().post(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Max\PycharmProjects\News_01\venv\Lib\site-packages\django\views\generic\edit.py", line 153, in post
+    return self.form_valid(form)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Max\PycharmProjects\News_01\project\news_article\views.py", line 156, in form_valid
+    return super().form_valid(form)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Max\PycharmProjects\News_01\venv\Lib\site-packages\django\views\generic\edit.py", line 135, in form_valid
+    self.object = form.save()
+                  ^^^^^^^^^^^
+  File "C:\Users\Max\PycharmProjects\News_01\venv\Lib\site-packages\django\forms\models.py", line 542, in save
+    self.instance.save()
+  File "C:\Users\Max\PycharmProjects\News_01\project\news_article\models.py", line 74, in save
+    raise ValidationError("Пользователь уже опубликовал максимальное количество записей за сутки.")
+django.core.exceptions.ValidationError: ['Пользователь уже опубликовал максимальное количество записей за сутки.']
+2023-10-27 15:32:55,954 [ERROR] [basehttp] - "POST /news/create HTTP/1.1" 500 145
+2023-10-27 15:36:12,592 [INFO] [autoreload] - Watching for file changes with StatReloader
+2023-10-27 15:36:14,162 [WARNING] [log] - Not Found: /
+2023-10-27 15:36:14,163 [WARNING] [basehttp] - "GET / HTTP/1.1" 404 179
+2023-10-27 15:36:18,957 [INFO] [basehttp] - "GET /news/ HTTP/1.1" 200 4239
+2023-10-27 15:36:21,520 [INFO] [basehttp] - "GET /news/categories HTTP/1.1" 200 3381
+2023-10-27 15:36:22,798 [INFO] [basehttp] - "GET /news/categories/3 HTTP/1.1" 200 4691
+2023-10-27 15:36:25,415 [INFO] [basehttp] - "POST /news/categories/3/subscribe HTTP/1.1" 302 0
+2023-10-27 15:36:25,418 [INFO] [basehttp] - "GET /news/categories/unsubscribe_donecategories/subscribe_done HTTP/1.1" 200 2872
+2023-10-27 15:36:41,611 [INFO] [autoreload] - C:\Users\Max\PycharmProjects\News_01\project\project\settings.py changed, reloading.
+2023-10-27 15:36:42,548 [INFO] [autoreload] - Watching for file changes with StatReloader
+2023-10-27 15:37:14,197 [INFO] [autoreload] - Watching for file changes with StatReloader
+2023-10-27 15:37:32,672 [INFO] [basehttp] - "GET /news/categories/unsubscribe_donecategories/subscribe_done HTTP/1.1" 200 2872
+2023-10-27 15:37:34,550 [INFO] [basehttp] - "GET /news/search HTTP/1.1" 200 5098
+2023-10-27 15:37:35,414 [INFO] [basehttp] - "GET /news/articles/create HTTP/1.1" 200 4376
+2023-10-27 15:37:43,694 [ERROR] [redis] - Connection to Redis lost: Retry (0/20) now.
+2023-10-27 15:37:45,744 [ERROR] [redis] - Connection to Redis lost: Retry (1/20) in 1.00 second.
+2023-10-27 15:37:48,792 [ERROR] [redis] - Connection to Redis lost: Retry (2/20) in 1.00 second.
+2023-10-27 15:37:51,828 [ERROR] [redis] - Connection to Redis lost: Retry (3/20) in 1.00 second.
+2023-10-27 15:37:54,874 [ERROR] [redis] - Connection to Redis lost: Retry (4/20) in 1.00 second.
+2023-10-27 15:37:57,912 [ERROR] [redis] - Connection to Redis lost: Retry (5/20) in 1.00 second.
+2023-10-27 15:38:00,962 [ERROR] [redis] - Connection to Redis lost: Retry (6/20) in 1.00 second.
+2023-10-27 15:38:04,013 [ERROR] [redis] - Connection to Redis lost: Retry (7/20) in 1.00 second.
+2023-10-27 15:38:07,054 [ERROR] [redis] - Connection to Redis lost: Retry (8/20) in 1.00 second.
+2023-10-27 15:38:10,107 [ERROR] [redis] - Connection to Redis lost: Retry (9/20) in 1.00 second.
+2023-10-27 15:38:13,147 [ERROR] [redis] - Connection to Redis lost: Retry (10/20) in 1.00 second.
+2023-10-27 15:38:16,188 [ERROR] [redis] - Connection to Redis lost: Retry (11/20) in 1.00 second.
+2023-10-27 15:38:19,254 [ERROR] [redis] - Connection to Redis lost: Retry (12/20) in 1.00 second.
+2023-10-27 15:38:22,291 [ERROR] [redis] - Connection to Redis lost: Retry (13/20) in 1.00 second.
+2023-10-27 15:38:25,329 [ERROR] [redis] - Connection to Redis lost: Retry (14/20) in 1.00 second.
+2023-10-27 15:38:28,383 [ERROR] [redis] - Connection to Redis lost: Retry (15/20) in 1.00 second.
+2023-10-27 15:38:31,429 [ERROR] [redis] - Connection to Redis lost: Retry (16/20) in 1.00 second.
+2023-10-27 15:38:34,475 [ERROR] [redis] - Connection to Redis lost: Retry (17/20) in 1.00 second.
+2023-10-27 15:38:37,518 [ERROR] [redis] - Connection to Redis lost: Retry (18/20) in 1.00 second.
+2023-10-27 15:38:40,566 [ERROR] [redis] - Connection to Redis lost: Retry (19/20) in 1.00 second.
+2023-10-27 15:38:43,618 [CRITICAL] [redis] - 
+Retry limit exceeded while trying to reconnect to the Celery redis result store backend. The Celery application must be restarted.
+
+2023-10-27 15:38:43,950 [ERROR] [log] - Internal Server Error: /news/articles/create
+Traceback (most recent call last):
+  File "C:\Users\Max\PycharmProjects\News_01\venv\Lib\site-packages\redis\connection.py", line 707, in connect
+    sock = self.retry.call_with_retry(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Max\PycharmProjects\News_01\venv\Lib\site-packages\redis\retry.py", line 46, in call_with_retry
+    return do()
+           ^^^^
+  File "C:\Users\Max\PycharmProjects\News_01\venv\Lib\site-packages\redis\connection.py", line 708, in <lambda>
+    lambda: self._connect(), lambda error: self.disconnect(error)
+            ^^^^^^^^^^^^^^^
+  File "C:\Users\Max\PycharmProjects\News_01\venv\Lib\site-packages\redis\connection.py", line 1006, in _connect
+    raise err
+  File "C:\Users\Max\PycharmProjects\News_01\venv\Lib\site-packages\redis\connection.py", line 994, in _connect
+    sock.connect(socket_address)
+ConnectionRefusedError: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Max\PycharmProjects\News_01\venv\Lib\site-packages\celery\backends\redis.py", line 127, in reconnect_on_error
+    yield
+  File "C:\Users\Max\PycharmProjects\News_01\venv\Lib\site-packages\celery\backends\redis.py", line 177, in _consume_from
+    self._pubsub.subscribe(key)
+  File "C:\Users\Max\PycharmProjects\News_01\venv\Lib\site-packages\redis\client.py", line 1634, in subscribe
+    ret_val = self.execute_command("SUBSCRIBE", *new_channels.keys())
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Max\PycharmProjects\News_01\venv\Lib\site-packages\redis\client.py", line 1469, in execute_command
+    self.connection = self.connection_pool.get_connection(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Max\PycharmProjects\News_01\venv\Lib\site-packages\redis\connection.py", line 1461, in get_connection
+    connection.connect()
+  File "C:\Users\Max\PycharmProjects\News_01\venv\Lib\site-packages\redis\connection.py", line 713, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 10061 connecting to 127.0.0.1:6379. Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Max\PycharmProjects\News_01\venv\Lib\site-packages\redis\connection.py", line 707, in connect
+    sock = self.retry.call_with_retry(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Max\PycharmProjects\News_01\venv\Lib\site-packages\redis\retry.py", line 46, in call_with_retry
+    return do()
+           ^^^^
+  File "C:\Users\Max\PycharmProjects\News_01\venv\Lib\site-packages\redis\connection.py", line 708, in <lambda>
+    lambda: self._connect(), lambda error: self.disconnect(error)
+            ^^^^^^^^^^^^^^^
+  File "C:\Users\Max\PycharmProjects\News_01\venv\Lib\site-packages\redis\connection.py", line 1006, in _connect
+    raise err
+  File "C:\Users\Max\PycharmProjects\News_01\venv\Lib\site-packages\redis\connection.py", line 994, in _connect
+    sock.connect(socket_address)
+ConnectionRefusedError: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Max\PycharmProjects\News_01\venv\Lib\site-packages\kombu\connection.py", line 472, in _reraise_as_library_errors
+    yield
+  File "C:\Users\Max\PycharmProjects\News_01\venv\Lib\site-packages\celery\app\base.py", line 797, in send_task
+    self.backend.on_task_call(P, task_id)
+  File "C:\Users\Max\PycharmProjects\News_01\venv\Lib\site-packages\celery\backends\redis.py", line 373, in on_task_call
+    self.result_consumer.consume_from(task_id)
+  File "C:\Users\Max\PycharmProjects\News_01\venv\Lib\site-packages\celery\backends\redis.py", line 169, in consume_from
+    return self.start(task_id)
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Max\PycharmProjects\News_01\venv\Lib\site-packages\celery\backends\redis.py", line 147, in start
+    self._consume_from(initial_task_id)
+  File "C:\Users\Max\PycharmProjects\News_01\venv\Lib\site-packages\celery\backends\redis.py", line 176, in _consume_from
+    with self.reconnect_on_error():
+  File "C:\Users\Max\AppData\Local\Programs\Python\Python311\Lib\contextlib.py", line 155, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "C:\Users\Max\PycharmProjects\News_01\venv\Lib\site-packages\celery\backends\redis.py", line 130, in reconnect_on_error
+    self._ensure(self._reconnect_pubsub, ())
+  File "C:\Users\Max\PycharmProjects\News_01\venv\Lib\site-packages\celery\backends\redis.py", line 384, in ensure
+    return retry_over_time(
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\Max\PycharmProjects\News_01\venv\Lib\site-packages\kombu\utils\functional.py", line 318, in retry_over_time
+    return fun(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Max\PycharmProjects\News_01\venv\Lib\site-packages\celery\backends\redis.py", line 106, in _reconnect_pubsub
+    metas = self.backend.client.mget(self.subscribed_to)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Max\PycharmProjects\News_01\venv\Lib\site-packages\redis\commands\core.py", line 2002, in mget
+    return self.execute_command("MGET", *args, **options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Max\PycharmProjects\News_01\venv\Lib\site-packages\redis\client.py", line 1266, in execute_command
+    conn = self.connection or pool.get_connection(command_name, **options)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Max\PycharmProjects\News_01\venv\Lib\site-packages\redis\connection.py", line 1461, in get_connection
+    connection.connect()
+  File "C:\Users\Max\PycharmProjects\News_01\venv\Lib\site-packages\redis\connection.py", line 713, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 10061 connecting to 127.0.0.1:6379. Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Max\PycharmProjects\News_01\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Max\PycharmProjects\News_01\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Max\PycharmProjects\News_01\venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Max\PycharmProjects\News_01\venv\Lib\site-packages\django\contrib\auth\mixins.py", line 109, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Max\PycharmProjects\News_01\venv\Lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Max\PycharmProjects\News_01\venv\Lib\site-packages\django\views\generic\edit.py", line 184, in post
+    return super().post(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Max\PycharmProjects\News_01\venv\Lib\site-packages\django\views\generic\edit.py", line 153, in post
+    return self.form_valid(form)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Max\PycharmProjects\News_01\project\news_article\views.py", line 184, in form_valid
+    return super().form_valid(form)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Max\PycharmProjects\News_01\venv\Lib\site-packages\django\views\generic\edit.py", line 135, in form_valid
+    self.object = form.save()
+                  ^^^^^^^^^^^
+  File "C:\Users\Max\PycharmProjects\News_01\venv\Lib\site-packages\django\forms\models.py", line 542, in save
+    self.instance.save()
+  File "C:\Users\Max\PycharmProjects\News_01\project\news_article\models.py", line 76, in save
+    super(Post, self).save(*args, **kwargs)
+  File "C:\Users\Max\PycharmProjects\News_01\venv\Lib\site-packages\django\db\models\base.py", line 814, in save
+    self.save_base(
+  File "C:\Users\Max\PycharmProjects\News_01\venv\Lib\site-packages\django\db\models\base.py", line 892, in save_base
+    post_save.send(
+  File "C:\Users\Max\PycharmProjects\News_01\venv\Lib\site-packages\django\dispatch\dispatcher.py", line 176, in send
+    return [
+           ^
+  File "C:\Users\Max\PycharmProjects\News_01\venv\Lib\site-packages\django\dispatch\dispatcher.py", line 177, in <listcomp>
+    (receiver, receiver(signal=self, sender=sender, **named))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Max\PycharmProjects\News_01\project\news_article\signals.py", line 32, in notify_about_new_post
+    send_notifications.delay(instance.text_post, instance.pk, instance.title_post, subscribers_email)
+  File "C:\Users\Max\PycharmProjects\News_01\venv\Lib\site-packages\celery\app\task.py", line 444, in delay
+    return self.apply_async(args, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Max\PycharmProjects\News_01\venv\Lib\site-packages\celery\app\task.py", line 594, in apply_async
+    return app.send_task(
+           ^^^^^^^^^^^^^^
+  File "C:\Users\Max\PycharmProjects\News_01\venv\Lib\site-packages\celery\app\base.py", line 795, in send_task
+    with P.connection._reraise_as_library_errors():
+  File "C:\Users\Max\AppData\Local\Programs\Python\Python311\Lib\contextlib.py", line 155, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "C:\Users\Max\PycharmProjects\News_01\venv\Lib\site-packages\kombu\connection.py", line 476, in _reraise_as_library_errors
+    raise ConnectionError(str(exc)) from exc
+kombu.exceptions.OperationalError: Error 10061 connecting to 127.0.0.1:6379. Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение.
+2023-10-27 15:38:43,961 [ERROR] [basehttp] - "POST /news/articles/create HTTP/1.1" 500 323212
+2023-10-27 15:39:08,146 [INFO] [autoreload] - C:\Users\Max\PycharmProjects\News_01\project\project\settings.py changed, reloading.
+2023-10-27 15:39:09,245 [INFO] [autoreload] - Watching for file changes with StatReloader
+2023-10-27 15:39:19,697 [ERROR] [redis] - Connection to Redis lost: Retry (0/20) now.
+2023-10-27 15:39:21,753 [ERROR] [redis] - Connection to Redis lost: Retry (1/20) in 1.00 second.
+2023-10-27 15:39:24,787 [ERROR] [redis] - Connection to Redis lost: Retry (2/20) in 1.00 second.
+2023-10-27 15:39:27,843 [ERROR] [redis] - Connection to Redis lost: Retry (3/20) in 1.00 second.
+2023-10-27 15:39:30,879 [ERROR] [redis] - Connection to Redis lost: Retry (4/20) in 1.00 second.
+2023-10-27 15:39:33,928 [ERROR] [redis] - Connection to Redis lost: Retry (5/20) in 1.00 second.
+2023-10-27 15:39:36,984 [ERROR] [redis] - Connection to Redis lost: Retry (6/20) in 1.00 second.
+2023-10-27 15:39:40,042 [ERROR] [redis] - Connection to Redis lost: Retry (7/20) in 1.00 second.
+2023-10-27 15:39:43,083 [ERROR] [redis] - Connection to Redis lost: Retry (8/20) in 1.00 second.
+2023-10-27 15:39:46,113 [ERROR] [redis] - Connection to Redis lost: Retry (9/20) in 1.00 second.
+2023-10-27 15:39:49,142 [ERROR] [redis] - Connection to Redis lost: Retry (10/20) in 1.00 second.
+2023-10-27 15:39:52,183 [ERROR] [redis] - Connection to Redis lost: Retry (11/20) in 1.00 second.
+2023-10-27 15:39:55,221 [ERROR] [redis] - Connection to Redis lost: Retry (12/20) in 1.00 second.
+2023-10-27 15:39:58,268 [ERROR] [redis] - Connection to Redis lost: Retry (13/20) in 1.00 second.
+2023-10-27 15:40:01,302 [ERROR] [redis] - Connection to Redis lost: Retry (14/20) in 1.00 second.
+2023-10-27 15:40:04,346 [ERROR] [redis] - Connection to Redis lost: Retry (15/20) in 1.00 second.
+2023-10-27 15:40:07,374 [ERROR] [redis] - Connection to Redis lost: Retry (16/20) in 1.00 second.
+2023-10-27 15:40:10,417 [ERROR] [redis] - Connection to Redis lost: Retry (17/20) in 1.00 second.
+2023-10-27 15:40:13,473 [ERROR] [redis] - Connection to Redis lost: Retry (18/20) in 1.00 second.
+2023-10-27 15:40:16,523 [ERROR] [redis] - Connection to Redis lost: Retry (19/20) in 1.00 second.
+2023-10-27 15:40:19,563 [CRITICAL] [redis] - 
+Retry limit exceeded while trying to reconnect to the Celery redis result store backend. The Celery application must be restarted.
+
+2023-10-27 15:40:19,726 [ERROR] [log] - Internal Server Error: /news/articles/create
+Traceback (most recent call last):
+  File "C:\Users\Max\PycharmProjects\News_01\venv\Lib\site-packages\redis\connection.py", line 707, in connect
+    sock = self.retry.call_with_retry(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Max\PycharmProjects\News_01\venv\Lib\site-packages\redis\retry.py", line 46, in call_with_retry
+    return do()
+           ^^^^
+  File "C:\Users\Max\PycharmProjects\News_01\venv\Lib\site-packages\redis\connection.py", line 708, in <lambda>
+    lambda: self._connect(), lambda error: self.disconnect(error)
+            ^^^^^^^^^^^^^^^
+  File "C:\Users\Max\PycharmProjects\News_01\venv\Lib\site-packages\redis\connection.py", line 1006, in _connect
+    raise err
+  File "C:\Users\Max\PycharmProjects\News_01\venv\Lib\site-packages\redis\connection.py", line 994, in _connect
+    sock.connect(socket_address)
+ConnectionRefusedError: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Max\PycharmProjects\News_01\venv\Lib\site-packages\celery\backends\redis.py", line 127, in reconnect_on_error
+    yield
+  File "C:\Users\Max\PycharmProjects\News_01\venv\Lib\site-packages\celery\backends\redis.py", line 177, in _consume_from
+    self._pubsub.subscribe(key)
+  File "C:\Users\Max\PycharmProjects\News_01\venv\Lib\site-packages\redis\client.py", line 1634, in subscribe
+    ret_val = self.execute_command("SUBSCRIBE", *new_channels.keys())
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Max\PycharmProjects\News_01\venv\Lib\site-packages\redis\client.py", line 1469, in execute_command
+    self.connection = self.connection_pool.get_connection(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Max\PycharmProjects\News_01\venv\Lib\site-packages\redis\connection.py", line 1461, in get_connection
+    connection.connect()
+  File "C:\Users\Max\PycharmProjects\News_01\venv\Lib\site-packages\redis\connection.py", line 713, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 10061 connecting to 127.0.0.1:6379. Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Max\PycharmProjects\News_01\venv\Lib\site-packages\redis\connection.py", line 707, in connect
+    sock = self.retry.call_with_retry(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Max\PycharmProjects\News_01\venv\Lib\site-packages\redis\retry.py", line 46, in call_with_retry
+    return do()
+           ^^^^
+  File "C:\Users\Max\PycharmProjects\News_01\venv\Lib\site-packages\redis\connection.py", line 708, in <lambda>
+    lambda: self._connect(), lambda error: self.disconnect(error)
+            ^^^^^^^^^^^^^^^
+  File "C:\Users\Max\PycharmProjects\News_01\venv\Lib\site-packages\redis\connection.py", line 1006, in _connect
+    raise err
+  File "C:\Users\Max\PycharmProjects\News_01\venv\Lib\site-packages\redis\connection.py", line 994, in _connect
+    sock.connect(socket_address)
+ConnectionRefusedError: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Max\PycharmProjects\News_01\venv\Lib\site-packages\kombu\connection.py", line 472, in _reraise_as_library_errors
+    yield
+  File "C:\Users\Max\PycharmProjects\News_01\venv\Lib\site-packages\celery\app\base.py", line 797, in send_task
+    self.backend.on_task_call(P, task_id)
+  File "C:\Users\Max\PycharmProjects\News_01\venv\Lib\site-packages\celery\backends\redis.py", line 373, in on_task_call
+    self.result_consumer.consume_from(task_id)
+  File "C:\Users\Max\PycharmProjects\News_01\venv\Lib\site-packages\celery\backends\redis.py", line 169, in consume_from
+    return self.start(task_id)
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Max\PycharmProjects\News_01\venv\Lib\site-packages\celery\backends\redis.py", line 147, in start
+    self._consume_from(initial_task_id)
+  File "C:\Users\Max\PycharmProjects\News_01\venv\Lib\site-packages\celery\backends\redis.py", line 176, in _consume_from
+    with self.reconnect_on_error():
+  File "C:\Users\Max\AppData\Local\Programs\Python\Python311\Lib\contextlib.py", line 155, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "C:\Users\Max\PycharmProjects\News_01\venv\Lib\site-packages\celery\backends\redis.py", line 130, in reconnect_on_error
+    self._ensure(self._reconnect_pubsub, ())
+  File "C:\Users\Max\PycharmProjects\News_01\venv\Lib\site-packages\celery\backends\redis.py", line 384, in ensure
+    return retry_over_time(
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\Max\PycharmProjects\News_01\venv\Lib\site-packages\kombu\utils\functional.py", line 318, in retry_over_time
+    return fun(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Max\PycharmProjects\News_01\venv\Lib\site-packages\celery\backends\redis.py", line 106, in _reconnect_pubsub
+    metas = self.backend.client.mget(self.subscribed_to)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Max\PycharmProjects\News_01\venv\Lib\site-packages\redis\commands\core.py", line 2002, in mget
+    return self.execute_command("MGET", *args, **options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Max\PycharmProjects\News_01\venv\Lib\site-packages\redis\client.py", line 1266, in execute_command
+    conn = self.connection or pool.get_connection(command_name, **options)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Max\PycharmProjects\News_01\venv\Lib\site-packages\redis\connection.py", line 1461, in get_connection
+    connection.connect()
+  File "C:\Users\Max\PycharmProjects\News_01\venv\Lib\site-packages\redis\connection.py", line 713, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 10061 connecting to 127.0.0.1:6379. Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Max\PycharmProjects\News_01\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Max\PycharmProjects\News_01\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Max\PycharmProjects\News_01\venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Max\PycharmProjects\News_01\venv\Lib\site-packages\django\contrib\auth\mixins.py", line 109, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Max\PycharmProjects\News_01\venv\Lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Max\PycharmProjects\News_01\venv\Lib\site-packages\django\views\generic\edit.py", line 184, in post
+    return super().post(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Max\PycharmProjects\News_01\venv\Lib\site-packages\django\views\generic\edit.py", line 153, in post
+    return self.form_valid(form)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Max\PycharmProjects\News_01\project\news_article\views.py", line 184, in form_valid
+    return super().form_valid(form)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Max\PycharmProjects\News_01\venv\Lib\site-packages\django\views\generic\edit.py", line 135, in form_valid
+    self.object = form.save()
+                  ^^^^^^^^^^^
+  File "C:\Users\Max\PycharmProjects\News_01\venv\Lib\site-packages\django\forms\models.py", line 542, in save
+    self.instance.save()
+  File "C:\Users\Max\PycharmProjects\News_01\project\news_article\models.py", line 76, in save
+    super(Post, self).save(*args, **kwargs)
+  File "C:\Users\Max\PycharmProjects\News_01\venv\Lib\site-packages\django\db\models\base.py", line 814, in save
+    self.save_base(
+  File "C:\Users\Max\PycharmProjects\News_01\venv\Lib\site-packages\django\db\models\base.py", line 892, in save_base
+    post_save.send(
+  File "C:\Users\Max\PycharmProjects\News_01\venv\Lib\site-packages\django\dispatch\dispatcher.py", line 176, in send
+    return [
+           ^
+  File "C:\Users\Max\PycharmProjects\News_01\venv\Lib\site-packages\django\dispatch\dispatcher.py", line 177, in <listcomp>
+    (receiver, receiver(signal=self, sender=sender, **named))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Max\PycharmProjects\News_01\project\news_article\signals.py", line 32, in notify_about_new_post
+    send_notifications.delay(instance.text_post, instance.pk, instance.title_post, subscribers_email)
+  File "C:\Users\Max\PycharmProjects\News_01\venv\Lib\site-packages\celery\app\task.py", line 444, in delay
+    return self.apply_async(args, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Max\PycharmProjects\News_01\venv\Lib\site-packages\celery\app\task.py", line 594, in apply_async
+    return app.send_task(
+           ^^^^^^^^^^^^^^
+  File "C:\Users\Max\PycharmProjects\News_01\venv\Lib\site-packages\celery\app\base.py", line 795, in send_task
+    with P.connection._reraise_as_library_errors():
+  File "C:\Users\Max\AppData\Local\Programs\Python\Python311\Lib\contextlib.py", line 155, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "C:\Users\Max\PycharmProjects\News_01\venv\Lib\site-packages\kombu\connection.py", line 476, in _reraise_as_library_errors
+    raise ConnectionError(str(exc)) from exc
+kombu.exceptions.OperationalError: Error 10061 connecting to 127.0.0.1:6379. Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение.
+2023-10-27 15:40:19,735 [INFO] [basehttp] - - Broken pipe from ('127.0.0.1', 53879)
+2023-10-27 15:41:06,105 [INFO] [autoreload] - C:\Users\Max\PycharmProjects\News_01\project\project\settings.py changed, reloading.
+2023-10-27 15:41:07,173 [INFO] [autoreload] - Watching for file changes with StatReloader
+2023-10-27 15:41:16,444 [INFO] [autoreload] - C:\Users\Max\PycharmProjects\News_01\project\project\settings.py changed, reloading.
+2023-10-27 15:41:17,543 [INFO] [autoreload] - Watching for file changes with StatReloader
+2023-10-27 15:41:37,328 [INFO] [autoreload] - C:\Users\Max\PycharmProjects\News_01\project\project\settings.py changed, reloading.
+2023-10-27 15:41:38,647 [INFO] [django.utils.autoreload] - Watching for file changes with StatReloader
+2023-10-27 15:42:33,510 [INFO] [django.utils.autoreload] - Watching for file changes with StatReloader
+2023-10-27 15:44:00,622 [ERROR] [celery.backends.redis] - Connection to Redis lost: Retry (0/20) now.
+2023-10-27 15:44:02,672 [ERROR] [celery.backends.redis] - Connection to Redis lost: Retry (1/20) in 1.00 second.
+2023-10-27 15:44:05,728 [ERROR] [celery.backends.redis] - Connection to Redis lost: Retry (2/20) in 1.00 second.
+2023-10-27 15:44:08,751 [ERROR] [celery.backends.redis] - Connection to Redis lost: Retry (3/20) in 1.00 second.
+2023-10-27 15:44:11,804 [ERROR] [celery.backends.redis] - Connection to Redis lost: Retry (4/20) in 1.00 second.
+2023-10-27 15:44:14,844 [ERROR] [celery.backends.redis] - Connection to Redis lost: Retry (5/20) in 1.00 second.
+2023-10-27 15:44:17,887 [ERROR] [celery.backends.redis] - Connection to Redis lost: Retry (6/20) in 1.00 second.
+2023-10-27 15:44:20,932 [ERROR] [celery.backends.redis] - Connection to Redis lost: Retry (7/20) in 1.00 second.
+2023-10-27 15:44:23,960 [ERROR] [celery.backends.redis] - Connection to Redis lost: Retry (8/20) in 1.00 second.
+2023-10-27 15:44:27,030 [ERROR] [celery.backends.redis] - Connection to Redis lost: Retry (9/20) in 1.00 second.
+2023-10-27 15:44:30,082 [ERROR] [celery.backends.redis] - Connection to Redis lost: Retry (10/20) in 1.00 second.
+2023-10-27 15:44:33,129 [ERROR] [celery.backends.redis] - Connection to Redis lost: Retry (11/20) in 1.00 second.
+2023-10-27 15:44:36,170 [ERROR] [celery.backends.redis] - Connection to Redis lost: Retry (12/20) in 1.00 second.
+2023-10-27 15:44:37,850 [INFO] [django.utils.autoreload] - C:\Users\Max\PycharmProjects\News_01\project\project\settings.py changed, reloading.
+2023-10-27 15:44:41,101 [INFO] [django.utils.autoreload] - Watching for file changes with StatReloader
+2023-10-27 15:44:57,571 [ERROR] [celery.backends.redis] - Connection to Redis lost: Retry (0/20) now.
+2023-10-27 15:44:59,625 [ERROR] [celery.backends.redis] - Connection to Redis lost: Retry (1/20) in 1.00 second.
+2023-10-27 15:45:02,665 [ERROR] [celery.backends.redis] - Connection to Redis lost: Retry (2/20) in 1.00 second.
+2023-10-27 15:45:05,696 [ERROR] [celery.backends.redis] - Connection to Redis lost: Retry (3/20) in 1.00 second.
+2023-10-27 15:45:08,746 [ERROR] [celery.backends.redis] - Connection to Redis lost: Retry (4/20) in 1.00 second.
+2023-10-27 15:45:11,793 [ERROR] [celery.backends.redis] - Connection to Redis lost: Retry (5/20) in 1.00 second.
+2023-10-27 15:45:14,844 [ERROR] [celery.backends.redis] - Connection to Redis lost: Retry (6/20) in 1.00 second.
+2023-10-27 15:45:17,893 [ERROR] [celery.backends.redis] - Connection to Redis lost: Retry (7/20) in 1.00 second.
+2023-10-27 15:45:20,933 [ERROR] [celery.backends.redis] - Connection to Redis lost: Retry (8/20) in 1.00 second.
+2023-10-27 15:45:23,966 [ERROR] [celery.backends.redis] - Connection to Redis lost: Retry (9/20) in 1.00 second.
+2023-10-27 15:45:27,020 [ERROR] [celery.backends.redis] - Connection to Redis lost: Retry (10/20) in 1.00 second.
+2023-10-27 15:45:30,068 [ERROR] [celery.backends.redis] - Connection to Redis lost: Retry (11/20) in 1.00 second.
+2023-10-27 15:45:33,112 [ERROR] [celery.backends.redis] - Connection to Redis lost: Retry (12/20) in 1.00 second.
+2023-10-27 15:45:36,165 [ERROR] [celery.backends.redis] - Connection to Redis lost: Retry (13/20) in 1.00 second.
+2023-10-27 15:45:39,199 [ERROR] [celery.backends.redis] - Connection to Redis lost: Retry (14/20) in 1.00 second.
+2023-10-27 15:45:42,243 [ERROR] [celery.backends.redis] - Connection to Redis lost: Retry (15/20) in 1.00 second.
+2023-10-27 15:45:45,289 [ERROR] [celery.backends.redis] - Connection to Redis lost: Retry (16/20) in 1.00 second.
+2023-10-27 15:45:48,337 [ERROR] [celery.backends.redis] - Connection to Redis lost: Retry (17/20) in 1.00 second.
+2023-10-27 15:45:51,379 [ERROR] [celery.backends.redis] - Connection to Redis lost: Retry (18/20) in 1.00 second.
+2023-10-27 15:45:54,430 [ERROR] [celery.backends.redis] - Connection to Redis lost: Retry (19/20) in 1.00 second.
+2023-10-27 15:45:57,468 [CRITICAL] [celery.backends.redis] - 
+Retry limit exceeded while trying to reconnect to the Celery redis result store backend. The Celery application must be restarted.
+
+2023-10-27 15:58:09,555 [INFO] [django.utils.autoreload] - Watching for file changes with StatReloader
+2023-10-27 15:58:42,775 [ERROR] [celery.backends.redis] - Connection to Redis lost: Retry (0/20) now.
+2023-10-27 15:58:44,820 [ERROR] [celery.backends.redis] - Connection to Redis lost: Retry (1/20) in 1.00 second.
+2023-10-27 15:58:47,876 [ERROR] [celery.backends.redis] - Connection to Redis lost: Retry (2/20) in 1.00 second.
+2023-10-27 15:58:50,941 [ERROR] [celery.backends.redis] - Connection to Redis lost: Retry (3/20) in 1.00 second.
+2023-10-27 15:58:53,975 [ERROR] [celery.backends.redis] - Connection to Redis lost: Retry (4/20) in 1.00 second.
+2023-10-27 15:58:57,006 [ERROR] [celery.backends.redis] - Connection to Redis lost: Retry (5/20) in 1.00 second.
+2023-10-27 15:59:00,070 [ERROR] [celery.backends.redis] - Connection to Redis lost: Retry (6/20) in 1.00 second.
+2023-10-27 15:59:03,115 [ERROR] [celery.backends.redis] - Connection to Redis lost: Retry (7/20) in 1.00 second.
+2023-10-27 15:59:06,142 [ERROR] [celery.backends.redis] - Connection to Redis lost: Retry (8/20) in 1.00 second.
+2023-10-27 15:59:09,182 [ERROR] [celery.backends.redis] - Connection to Redis lost: Retry (9/20) in 1.00 second.
+2023-10-27 15:59:12,246 [ERROR] [celery.backends.redis] - Connection to Redis lost: Retry (10/20) in 1.00 second.
+2023-10-27 15:59:15,280 [ERROR] [celery.backends.redis] - Connection to Redis lost: Retry (11/20) in 1.00 second.
+2023-10-27 15:59:18,314 [ERROR] [celery.backends.redis] - Connection to Redis lost: Retry (12/20) in 1.00 second.
+2023-10-27 15:59:21,359 [ERROR] [celery.backends.redis] - Connection to Redis lost: Retry (13/20) in 1.00 second.
+2023-10-27 15:59:24,404 [ERROR] [celery.backends.redis] - Connection to Redis lost: Retry (14/20) in 1.00 second.
+2023-10-27 15:59:27,463 [ERROR] [celery.backends.redis] - Connection to Redis lost: Retry (15/20) in 1.00 second.
+2023-10-27 15:59:30,509 [ERROR] [celery.backends.redis] - Connection to Redis lost: Retry (16/20) in 1.00 second.
+2023-10-27 15:59:33,537 [ERROR] [celery.backends.redis] - Connection to Redis lost: Retry (17/20) in 1.00 second.
+2023-10-27 15:59:36,571 [ERROR] [celery.backends.redis] - Connection to Redis lost: Retry (18/20) in 1.00 second.
+2023-10-27 15:59:39,618 [ERROR] [celery.backends.redis] - Connection to Redis lost: Retry (19/20) in 1.00 second.
+2023-10-27 15:59:42,646 [CRITICAL] [celery.backends.redis] - 
+Retry limit exceeded while trying to reconnect to the Celery redis result store backend. The Celery application must be restarted.
+
+2023-10-27 16:03:28,867 [INFO] [django.utils.autoreload] - C:\Users\Max\PycharmProjects\News_01\project\project\settings.py changed, reloading.
+2023-10-27 16:03:30,383 [INFO] [django.utils.autoreload] - Watching for file changes with StatReloader
+2023-10-27 16:03:38,368 [INFO] [django.utils.autoreload] - Watching for file changes with StatReloader
+2023-10-27 16:05:24,861 [ERROR] [celery.backends.redis] - Connection to Redis lost: Retry (0/20) now.
+2023-10-27 16:05:26,930 [ERROR] [celery.backends.redis] - Connection to Redis lost: Retry (1/20) in 1.00 second.
+2023-10-27 16:05:29,980 [ERROR] [celery.backends.redis] - Connection to Redis lost: Retry (2/20) in 1.00 second.
+2023-10-27 16:05:33,025 [ERROR] [celery.backends.redis] - Connection to Redis lost: Retry (3/20) in 1.00 second.
+2023-10-27 16:05:36,059 [ERROR] [celery.backends.redis] - Connection to Redis lost: Retry (4/20) in 1.00 second.
+2023-10-27 16:05:39,119 [ERROR] [celery.backends.redis] - Connection to Redis lost: Retry (5/20) in 1.00 second.
+2023-10-27 16:05:42,148 [ERROR] [celery.backends.redis] - Connection to Redis lost: Retry (6/20) in 1.00 second.
+2023-10-27 16:05:45,190 [ERROR] [celery.backends.redis] - Connection to Redis lost: Retry (7/20) in 1.00 second.
+2023-10-27 16:05:48,238 [ERROR] [celery.backends.redis] - Connection to Redis lost: Retry (8/20) in 1.00 second.
+2023-10-27 16:05:51,284 [ERROR] [celery.backends.redis] - Connection to Redis lost: Retry (9/20) in 1.00 second.
+2023-10-27 16:05:54,325 [ERROR] [celery.backends.redis] - Connection to Redis lost: Retry (10/20) in 1.00 second.
+2023-10-27 16:05:57,372 [ERROR] [celery.backends.redis] - Connection to Redis lost: Retry (11/20) in 1.00 second.
+2023-10-27 16:06:00,420 [ERROR] [celery.backends.redis] - Connection to Redis lost: Retry (12/20) in 1.00 second.
+2023-10-27 16:06:03,470 [ERROR] [celery.backends.redis] - Connection to Redis lost: Retry (13/20) in 1.00 second.
+2023-10-27 16:06:06,515 [ERROR] [celery.backends.redis] - Connection to Redis lost: Retry (14/20) in 1.00 second.
+2023-10-27 16:06:09,553 [ERROR] [celery.backends.redis] - Connection to Redis lost: Retry (15/20) in 1.00 second.
+2023-10-27 16:06:12,599 [ERROR] [celery.backends.redis] - Connection to Redis lost: Retry (16/20) in 1.00 second.
+2023-10-27 16:06:15,640 [ERROR] [celery.backends.redis] - Connection to Redis lost: Retry (17/20) in 1.00 second.
+2023-10-27 16:06:18,678 [ERROR] [celery.backends.redis] - Connection to Redis lost: Retry (18/20) in 1.00 second.
+2023-10-27 16:06:21,715 [ERROR] [celery.backends.redis] - Connection to Redis lost: Retry (19/20) in 1.00 second.
+2023-10-27 16:06:24,766 [CRITICAL] [celery.backends.redis] - 
+Retry limit exceeded while trying to reconnect to the Celery redis result store backend. The Celery application must be restarted.
+
+2023-10-27 16:12:13,320 [INFO] [django.utils.autoreload] - C:\Users\Max\PycharmProjects\News_01\project\project\settings.py changed, reloading.
+2023-10-27 16:12:14,902 [INFO] [django.utils.autoreload] - Watching for file changes with StatReloader
+2023-10-27 16:15:09,721 [INFO] [django.utils.autoreload] - C:\Users\Max\PycharmProjects\News_01\project\project\settings.py changed, reloading.
+2023-10-27 16:15:11,300 [INFO] [django.utils.autoreload] - Watching for file changes with StatReloader
+2023-10-27 16:15:48,694 [INFO] [django.utils.autoreload] - C:\Users\Max\PycharmProjects\News_01\project\project\settings.py changed, reloading.
+2023-10-27 16:15:50,239 [INFO] [django.utils.autoreload] - Watching for file changes with StatReloader
+2023-10-27 16:16:31,946 [INFO] [django.utils.autoreload] - C:\Users\Max\PycharmProjects\News_01\project\project\settings.py changed, reloading.
+2023-10-27 16:16:33,539 [INFO] [django.utils.autoreload] - Watching for file changes with StatReloader
+2023-10-27 16:18:24,549 [INFO] [django.utils.autoreload] - C:\Users\Max\PycharmProjects\News_01\project\project\settings.py changed, reloading.
+2023-10-27 16:18:25,950 [INFO] [django.utils.autoreload] - Watching for file changes with StatReloader
+2023-10-27 16:21:33,952 [INFO] [django.utils.autoreload] - C:\Users\Max\PycharmProjects\News_01\project\project\settings.py changed, reloading.
+2023-10-27 16:28:26,919 [INFO] [django.utils.autoreload] - Watching for file changes with StatReloader
+2023-10-27 16:29:36,407 [INFO] [django.utils.autoreload] - C:\Users\Max\PycharmProjects\News_01\project\project\settings.py changed, reloading.
+2023-10-27 16:29:37,699 [INFO] [django.utils.autoreload] - Watching for file changes with StatReloader
+2023-10-27 16:31:50,620 [INFO] [django.utils.autoreload] - C:\Users\Max\PycharmProjects\News_01\project\project\settings.py changed, reloading.
+2023-10-27 16:31:51,961 [INFO] [django.utils.autoreload] - Watching for file changes with StatReloader
+2023-10-27 16:35:19,604 [INFO] [django.utils.autoreload] - C:\Users\Max\PycharmProjects\News_01\project\project\settings.py changed, reloading.
+2023-10-27 16:35:20,944 [INFO] [django.utils.autoreload] - Watching for file changes with StatReloader
+2023-10-27 16:36:12,497 [INFO] [django.utils.autoreload] - C:\Users\Max\PycharmProjects\News_01\project\project\settings.py changed, reloading.
+2023-10-27 16:36:14,024 [INFO] [django.utils.autoreload] - Watching for file changes with StatReloader
+2023-10-27 16:38:14,615 [INFO] [django.utils.autoreload] - C:\Users\Max\PycharmProjects\News_01\project\project\settings.py changed, reloading.
+2023-10-27 16:38:16,041 [INFO] [django.utils.autoreload] - Watching for file changes with StatReloader
+2023-10-27 16:59:32,276 [INFO] [django.utils.autoreload] - C:\Users\Max\PycharmProjects\News_01\project\project\settings.py changed, reloading.
+2023-10-27 16:59:34,385 [INFO] [django.utils.autoreload] - Watching for file changes with StatReloader
+2023-10-27 17:04:31,139 [INFO] [django.utils.autoreload] - C:\Users\Max\PycharmProjects\News_01\project\project\settings.py changed, reloading.

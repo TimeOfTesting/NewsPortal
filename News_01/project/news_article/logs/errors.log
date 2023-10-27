@@ -1,0 +1,22 @@
+2023-10-27 17:07:28,049 [ERROR] [django.request] - Internal Server Error: /news/categories/2/unsubscribe
+Traceback (most recent call last):
+  File "C:\Users\Max\PycharmProjects\News_01\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Max\PycharmProjects\News_01\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Max\PycharmProjects\News_01\project\news_article\views.py", line 132, in unsubscribe_category
+    msg.send()
+  File "C:\Users\Max\PycharmProjects\News_01\venv\Lib\site-packages\django\core\mail\message.py", line 298, in send
+    return self.get_connection(fail_silently).send_messages([self])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Max\PycharmProjects\News_01\venv\Lib\site-packages\django\core\mail\backends\smtp.py", line 134, in send_messages
+    sent = self._send(message)
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Max\PycharmProjects\News_01\venv\Lib\site-packages\django\core\mail\backends\smtp.py", line 152, in _send
+    self.connection.sendmail(
+  File "C:\Users\Max\AppData\Local\Programs\Python\Python311\Lib\smtplib.py", line 887, in sendmail
+    raise SMTPSenderRefused(code, resp, from_addr)
+smtplib.SMTPSenderRefused: (530, b'5.7.0 Authentication Required. Learn more at\n5.7.0  https://support.google.com/mail/?p=WantAuthError t29-20020a19911d000000b00507a1df9224sm275020lfd.289 - gsmtp', 'webmaster@localhost')
+2023-10-27 17:07:28,076 [ERROR] [django.server] - "POST /news/categories/2/unsubscribe HTTP/1.1" 500 98577

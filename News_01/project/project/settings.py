@@ -12,12 +12,13 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 import os
-from dotenv import load_dotenv
+import logging
+from django.core.mail.backends.smtp import EmailBackend
 
+logger = logging.getLogger('__name__')
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
@@ -28,7 +29,7 @@ SECRET_KEY = 'django-insecure-1ohc8r#3aprh(0u#%751uvjk++!n5y*tq-6svk@#k#+_)s_6#m
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1']
 
 
 # Application definition
@@ -177,8 +178,8 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 # EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 465
-EMAIL_HOST_USER = 'liz.kapustina1992@gmail.com'
-EMAIL_HOST_PASSWORD = "bjvp ilxq tcfw ulek"
+EMAIL_HOST_USER = os.getenv("EMAIL_HOST_USER")
+EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD")
 EMAIL_USE_SSL = True
 
 
@@ -198,3 +199,96 @@ CELERY_RESULT_BACKEND = 'redis://127.0.0.1:6379'
 CELERY_ACCEPT_CONTENT = ['application/json']
 CELERY_TASK_SERIALIZER = 'json'
 CELERY_RESULT_SERIALIZER = 'json'
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'detailed': {
+            'format': '%(asctime)s [%(levelname)s] [%(name)s] - %(message)s',
+        },
+        'detailed_warning': {
+            'format': '%(asctime)s [%(levelname)s] [%(name)s] - %(message)s - %(pathname)s',
+        },
+        'detailed_error': {
+            'format': '%(asctime)s [%(levelname)s] [%(name)s] - %(message)s - %(pathname)s - %(exc_info)s',
+        },
+        'console': {
+            'format': '%(asctime)s [%(levelname)s] - %(message)s',
+        },
+        'email_format': {
+            'format': 'Timestamp: %(asctime)s\nLevel: %(levelname)s\nModule: %(name)s\nMessage: %(message)s\nERROR: %(exc_info)s',
+        },
+    },
+    'filters': {
+        'require_debug_true': {
+            '()': 'django.utils.log.RequireDebugTrue',
+        },
+    },
+    'handlers': {
+        'console': {
+            'level': 'DEBUG',
+            'filters': ['require_debug_true'],
+            'class': 'logging.StreamHandler',
+            'formatter': 'console',
+        },
+        'general_file': {
+            'level': 'INFO',
+            'filters': ['require_debug_true'],
+            'class': 'logging.handlers.RotatingFileHandler',
+            'filename': 'news_article/logs/general.log',
+            'formatter': 'detailed_warning',
+        },
+        'errors_file': {
+            'level': 'ERROR',
+            'filters': ['require_debug_true'],
+            'class': 'logging.handlers.RotatingFileHandler',
+            'filename': 'news_article/logs/errors.log',
+            'formatter': 'detailed_error',
+        },
+        'security_file': {
+            'level': 'INFO',
+            'filters': ['require_debug_true'],
+            'class': 'logging.handlers.RotatingFileHandler',
+            'filename': 'news_article/logs/security.log',
+            'formatter': 'detailed',
+        },
+        'mail_admins': {
+            'level': 'ERROR',
+            'class': 'django.utils.log.AdminEmailHandler',
+            'formatter': 'email_format',
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['console', 'general_file', 'errors_file', 'security_file', 'mail_admins'],
+            'level': 'DEBUG' if DEBUG else 'INFO',
+            'propagate': False,
+        },
+        'django.request': {
+            'handlers': ['errors_file', 'mail_admins'],
+            'level': 'ERROR',
+            'propagate': False,
+        },
+        'django.server': {
+            'handlers': ['errors_file', 'mail_admins'],
+            'level': 'ERROR',
+            'propagate': False,
+        },
+        'django.security': {
+            'handlers': ['security_file'],
+            'level': 'DEBUG' if DEBUG else 'INFO',
+            'propagate': False,
+        },
+        'django.template': {
+            'handlers': ['errors_file'],
+            'level': 'ERROR',
+            'propagate': False,
+        },
+        'django.db.backends': {
+            'handlers': ['errors_file'],
+            'level': 'ERROR',
+            'propagate': False,
+        },
+    },
+}
